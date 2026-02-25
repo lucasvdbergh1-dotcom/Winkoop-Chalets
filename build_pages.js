@@ -131,10 +131,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const link = clone.querySelector('.data-bind-link');
             if (link) {
-                link.href = `product.html?product_id=${record.id}`;
+                link.href = `product.html?id=${record.id}`;
+            } else if (clone.tagName.toLowerCase() === 'a') {
+                clone.href = `product.html?id=${record.id}`;
             } else {
                 clone.addEventListener("click", () => {
-                    window.location.href = `product.html?product_id=${record.id}`;
+                    window.location.href = `product.html?id=${record.id}`;
                 });
             }
 
@@ -181,7 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Router Logic Based on Page
     if (window.location.pathname.includes("product.html") || viewDetails) {
         const urlParams = new URLSearchParams(window.location.search);
-        const selectedProductId = urlParams.get('product_id');
+        const selectedProductId = urlParams.get('id') || urlParams.get('product_id');
 
         if (!selectedProductId) {
             window.location.href = "aanbod.html";
