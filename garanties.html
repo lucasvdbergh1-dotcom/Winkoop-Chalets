@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Garanties | Winkoop Chalets</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#307de8",
+                        "primary-dark": "#1f62c4",
+                        secondary: "#8b7355", // Natural wood tone
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111821",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a2430",
+                        "text-main": "#111418",
+                        "text-muted": "#637288",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-text-main dark:text-slate-100 min-h-screen flex flex-col">
+    <!-- WINKOOP APP CONTAINER (Scoped for GHL) -->
+    <div id="winkoop-app-container" class="flex flex-col min-h-screen w-full">
+
+        <!-- Global Header -->
+        <header
+            class="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 backdrop-blur dark:border-slate-800 dark:bg-background-dark/95">
+            <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+                <a href="index.html" class="flex items-center gap-2">
+                    <div class="flex size-8 items-center justify-center rounded bg-primary/10 text-primary">
+                        <span class="material-symbols-outlined">chalet</span>
+                    </div>
+                    <span class="text-lg font-bold tracking-tight text-slate-900 dark:text-white">Winkoop Chalets</span>
+                </a>
+                <nav class="hidden md:flex items-center gap-8">
+                    <a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 transition-colors"
+                        href="aanbod.html">Aanbod</a>
+                    <a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 transition-colors"
+                        href="werkwijze.html">Werkwijze</a>
+                    <a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 transition-colors"
+                        href="garanties.html">Garanties</a>
+                    <a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 transition-colors"
+                        href="contact.html">Contact</a>
+                <a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 transition-colors"
+                        href="faq.html">FAQ</a>
+                </nav>
+                <div class="flex items-center gap-3">
+                    <a href="aanbod.html"
+                        class="flex h-9 items-center justify-center rounded-lg bg-primary px-4 text-sm font-bold text-white shadow-sm transition-colors hover:bg-primary/90">
+                        Aanbod Bekijken
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <main class="flex-1 w-full flex flex-col py-16" id="app-main-content">
+            <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <span
+                        class="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-bold tracking-wider uppercase mb-4">Gegarandeerde
+                        Kwaliteit</span>
+                    <h1 class="text-4xl sm:text-5xl font-black mb-6 tracking-tight text-slate-900 dark:text-white">
+                        Zekerheid met onze Garanties</h1>
+                    <p class="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Bij Winkoop Chalets koopt u
+                        niet zomaar een chalet; u koopt gemoedsrust en jarenlang recreatieplezier, onderbouwd met harde
+                        garanties.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 mb-16">
+                    <div
+                        class="p-8 bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-xl transition-all group">
+                        <div
+                            class="flex size-16 items-center justify-center rounded-2xl bg-blue-50 dark:bg-blue-900/30 text-primary mb-6 transition-transform group-hover:scale-110">
+                            <span class="material-symbols-outlined text-4xl">verified</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-slate-900 dark:text-white">Structurele Garantie</h3>
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">Wij controleren het gehele
+                            chassis op roest, vervormingen en zwakke plekken. Het skelet, dragende muren, de
+                            dakconstructie en de buitenste schil worden 100% goed bevonden voor verkoop.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3 text-slate-700 dark:text-slate-300">
+                                <span class="material-symbols-outlined text-green-500 mt-0.5">check_circle</span>
+                                Stevig en roestvrij onderstel
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-700 dark:text-slate-300">
+                                <span class="material-symbols-outlined text-green-500 mt-0.5">check_circle</span>
+                                Verstevigd dak tegen sneeuw- en stormlast
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-700 dark:text-slate-300">
+                                <span class="material-symbols-outlined text-green-500 mt-0.5">check_circle</span>
+                                Solide wandconstructie
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div
+                        class="p-8 bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-xl transition-all group">
+                        <div
+                            class="flex size-16 items-center justify-center rounded-2xl bg-blue-50 dark:bg-blue-900/30 text-primary mb-6 transition-transform group-hover:scale-110">
+                            <span class="material-symbols-outlined text-4xl">plumbing</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-slate-900 dark:text-white">Installatie Garantie</h3>
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">Alle cruciale
+                            veiligheidsaspecten aangaande nutsvoorzieningen, zoals cv-ketels, gasleidingen en
+                            elektrawerk, worden vooraf gekeurd, uitvoerig getest en direct vervangen indien defect.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3 text-slate-700 dark:text-slate-300">
+                                <span class="material-symbols-outlined text-green-500 mt-0.5">check_circle</span>
+                                Afgeperste en veilige (gas)leidingen
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-700 dark:text-slate-300">
+                                <span class="material-symbols-outlined text-green-500 mt-0.5">check_circle</span>
+                                NEN goedgekeurde groepenkast
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-700 dark:text-slate-300">
+                                <span class="material-symbols-outlined text-green-500 mt-0.5">check_circle</span>
+                                Goed werkende geiser of CV, zonder storingen
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div
+                        class="p-8 bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-xl transition-all group">
+                        <div
+                            class="flex size-16 items-center justify-center rounded-2xl bg-blue-50 dark:bg-blue-900/30 text-primary mb-6 transition-transform group-hover:scale-110">
+                            <span class="material-symbols-outlined text-4xl">water_drop</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-slate-900 dark:text-white">Waterdicht Garantie</h3>
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">Niets is vervelender dan
+                            lekkages na hevige regen. De bedekking van het dak, de kitnaden en de kozijnen worden
+                            standaard preventief gecheckt. U koopt een 100% droog verblijf.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3 text-slate-700 dark:text-slate-300">
+                                <span class="material-symbols-outlined text-green-500 mt-0.5">check_circle</span>
+                                Nagekeken dakbedekking en boeidelen
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-700 dark:text-slate-300">
+                                <span class="material-symbols-outlined text-green-500 mt-0.5">check_circle</span>
+                                Optimaal sluitende enkel- en dubbelglas ramen
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-700 dark:text-slate-300">
+                                <span class="material-symbols-outlined text-green-500 mt-0.5">check_circle</span>
+                                Hoogwaardig vervangen van poreuze kitnaden
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div
+                        class="p-8 bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 hover:shadow-xl transition-all group">
+                        <div
+                            class="flex size-16 items-center justify-center rounded-2xl bg-blue-50 dark:bg-blue-900/30 text-primary mb-6 transition-transform group-hover:scale-110">
+                            <span class="material-symbols-outlined text-4xl">support_agent</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-slate-900 dark:text-white">Oplevering & Support</h3>
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">Winkoop stopt niet na
+                            facturatie. Bij een eventuele mankement in de opstartfase komen wij razendsnel in actie met
+                            de benodigde vakmensen.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3 text-slate-700 dark:text-slate-300">
+                                <span class="material-symbols-outlined text-green-500 mt-0.5">check_circle</span>
+                                Professioneel intern wagenpark
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-700 dark:text-slate-300">
+                                <span class="material-symbols-outlined text-green-500 mt-0.5">check_circle</span>
+                                Kosteloze reparatie van defecten binnen termijn
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-700 dark:text-slate-300">
+                                <span class="material-symbols-outlined text-green-500 mt-0.5">check_circle</span>
+                                Eerlijk, transparant en oplossingsgericht netwerk
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Global Footer -->
+<footer class="border-t border-slate-200 bg-white pt-16 pb-8 dark:border-slate-800 dark:bg-background-dark mt-auto">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-5">
+            <div class="col-span-2 lg:col-span-2">
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="flex size-6 items-center justify-center rounded bg-primary text-white">
+                        <span class="material-symbols-outlined text-sm">chalet</span>
+                    </div>
+                    <span class="text-lg font-bold tracking-tight text-slate-900 dark:text-white">Winkoop Chalets</span>
+                </div>
+                <p class="max-w-xs text-sm text-slate-500 dark:text-slate-400">
+                    De meest betrouwbare partner voor de aan- en verkoop van gerenoveerde mobiele chalets en stacaravans
+                    in Nederland.
+                </p>
+            </div>
+            <div>
+                <h3 class="mb-3 text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white">Main Menu
+                </h3>
+                <ul class="space-y-2">
+                    <li><a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400" href="index.html">Home</a></li>
+                    <li><a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400"
+                            href="aanbod.html">Aanbod</a></li>
+                    <li><a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400"
+                            href="werkwijze.html">Werkwijze</a></li>
+                    <li><a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400"
+                            href="garanties.html">Garanties</a></li>
+                    <li><a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400"
+                            href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="mb-3 text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white">Support &
+                    Legal</h3>
+                <ul class="space-y-2">
+                    <li><a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400" href="faq.html">FAQ</a>
+                    </li>
+                    <li><a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400"
+                            href="algemene-voorwaarden.html">Algemene Voorwaarden</a></li>
+                    <li><a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400"
+                            href="privacy-policy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="mb-3 text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white">Contact</h3>
+                <ul class="space-y-2">
+                    <li><a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400"
+                            href="contact.html">info@winkoopchalets.nl</a></li>
+                    <li><span class="text-sm text-slate-500 dark:text-slate-400">0342 - 123 456</span></li>
+                    <li class="text-sm text-slate-500 dark:text-slate-400 mt-2">Ma-Vr, 09:00 - 17:00</li>
+                </ul>
+            </div>
+        </div>
+        <div class="mt-12 border-t border-slate-100 pt-8 dark:border-slate-800">
+            <p class="text-center text-sm text-slate-400">
+                © 2026 Winkoop Chalets B.V. Alle rechten voorbehouden.
+            </p>
+        </div>
+    </div>
+</footer>
+    </div>
+</body>
+
+</html>

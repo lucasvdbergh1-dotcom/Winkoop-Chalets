@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>FAQ | Winkoop Chalets</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#307de8",
+                        "primary-dark": "#1f62c4",
+                        secondary: "#8b7355", // Natural wood tone
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111821",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a2430",
+                        "text-main": "#111418",
+                        "text-muted": "#637288",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-text-main dark:text-slate-100 min-h-screen flex flex-col">
+    <!-- WINKOOP APP CONTAINER (Scoped for GHL) -->
+    <div id="winkoop-app-container" class="flex flex-col min-h-screen w-full">
+
+        <!-- Global Header -->
+        <header
+            class="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 backdrop-blur dark:border-slate-800 dark:bg-background-dark/95">
+            <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+                <a href="index.html" class="flex items-center gap-2">
+                    <div class="flex size-8 items-center justify-center rounded bg-primary/10 text-primary">
+                        <span class="material-symbols-outlined">chalet</span>
+                    </div>
+                    <span class="text-lg font-bold tracking-tight text-slate-900 dark:text-white">Winkoop Chalets</span>
+                </a>
+                <nav class="hidden md:flex items-center gap-8">
+                    <a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 transition-colors"
+                        href="aanbod.html">Aanbod</a>
+                    <a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 transition-colors"
+                        href="werkwijze.html">Werkwijze</a>
+                    <a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 transition-colors"
+                        href="garanties.html">Garanties</a>
+                    <a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 transition-colors"
+                        href="contact.html">Contact</a>
+                <a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 transition-colors"
+                        href="faq.html">FAQ</a>
+                </nav>
+                <div class="flex items-center gap-3">
+                    <a href="aanbod.html"
+                        class="flex h-9 items-center justify-center rounded-lg bg-primary px-4 text-sm font-bold text-white shadow-sm transition-colors hover:bg-primary/90">
+                        Aanbod Bekijken
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <main class="flex-1 w-full flex flex-col" id="app-main-content">
+            <section class="flex-grow layout-container flex justify-center py-10 px-4 sm:px-10 w-full">
+                <div class="flex flex-col max-w-[1200px] w-full gap-8">
+                    <!-- Page Header -->
+                    <div class="flex flex-col gap-2 pb-6 border-b border-slate-200 dark:border-slate-800">
+                        <h1 class="text-slate-900 dark:text-white text-4xl font-black leading-tight tracking-tight">
+                            Veelgestelde Vragen</h1>
+                        <p class="text-slate-500 dark:text-slate-400 text-lg max-w-2xl">
+                            Transparante antwoorden over de aanschaf, renovatie en plaatsing van uw toekomstige
+                            stacaravan. Geen kleine lettertjes, gewoon duidelijkheid.
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col lg:flex-row gap-10 items-start pb-16">
+                        <!-- Left Sidebar: Contact CTA & Categories -->
+                        <aside class="w-full lg:w-1/4 shrink-0 flex flex-col gap-6 sticky top-24">
+                            <!-- Categories Widget -->
+                            <div
+                                class="bg-white dark:bg-surface-dark rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-4">
+                                <h3
+                                    class="text-slate-900 dark:text-white text-sm font-bold uppercase tracking-wider mb-4 px-2">
+                                    Categorieën</h3>
+                                <nav class="flex flex-col gap-1" id="faq-categories">
+                                    <button data-category="show-all"
+                                        class="category-btn flex items-center gap-3 px-3 py-3 rounded-lg bg-primary/10 text-primary font-medium transition-colors w-full text-left">
+                                        <span class="material-symbols-outlined text-[20px]">grid_view</span>
+                                        <span>Alles tonen</span>
+                                    </button>
+                                    <button data-category="aankoopproces"
+                                        class="category-btn flex items-center gap-3 px-3 py-3 rounded-lg text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white font-medium transition-colors w-full text-left">
+                                        <span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+                                        <span>Aankoopproces</span>
+                                    </button>
+                                    <button data-category="kosten"
+                                        class="category-btn flex items-center gap-3 px-3 py-3 rounded-lg text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white font-medium transition-colors w-full text-left">
+                                        <span class="material-symbols-outlined text-[20px]">payments</span>
+                                        <span>Financiering & Inruil</span>
+                                    </button>
+                                    <button data-category="kwaliteit"
+                                        class="category-btn flex items-center gap-3 px-3 py-3 rounded-lg text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white font-medium transition-colors w-full text-left">
+                                        <span class="material-symbols-outlined text-[20px]">build</span>
+                                        <span>Renovatie & Garantie</span>
+                                    </button>
+                                    <button data-category="transport"
+                                        class="category-btn flex items-center gap-3 px-3 py-3 rounded-lg text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white font-medium transition-colors w-full text-left">
+                                        <span class="material-symbols-outlined text-[20px]">local_shipping</span>
+                                        <span>Transport & Plaatsing</span>
+                                    </button>
+                                </nav>
+                            </div>
+
+                            <!-- Contact Card Sidebar -->
+                            <div
+                                class="bg-primary text-white rounded-xl shadow-lg p-6 flex flex-col gap-4 relative overflow-hidden">
+                                <div class="absolute top-0 right-0 p-4 opacity-10 pointer-events-none">
+                                    <span class="material-symbols-outlined text-9xl">support_agent</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold mb-1">Nog steeds vragen?</h3>
+                                    <p class="text-white/90 text-sm">Ons team staat 7 dagen per week voor u klaar met
+                                        persoonlijk advies.</p>
+                                </div>
+                                <div class="flex flex-col gap-3 mt-2 z-10">
+                                    <a href="contact.html"
+                                        class="flex items-center justify-center gap-2 w-full bg-white text-primary font-bold py-2.5 rounded-lg hover:bg-slate-100 transition-colors">
+                                        <span class="material-symbols-outlined text-[20px]">chat</span>
+                                        Stuur een bericht
+                                    </a>
+                                    <a href="tel:0342123456"
+                                        class="flex items-center justify-center gap-2 w-full bg-[#25D366] text-white font-bold py-2.5 rounded-lg hover:bg-[#20bd5a] transition-colors border border-transparent">
+                                        <span class="material-symbols-outlined text-[20px]">call</span>
+                                        Bel direct
+                                    </a>
+                                </div>
+                            </div>
+                        </aside>
+
+                        <!-- Right Content: Accordion -->
+                        <div class="flex-1 w-full">
+                            <div class="flex flex-col gap-4">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span class="material-symbols-outlined text-primary text-2xl">info</span>
+                                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Alles wat u moet weten
+                                    </h2>
+                                </div>
+
+                                <!-- Accordion Items (Native HTML details/summary + Tailwind) -->
+                                <div class="flex flex-col gap-3">
+
+                                    <details data-category="aankoopproces"
+                                        class="faq-item group bg-white dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-slate-800 open:ring-2 open:ring-primary/20 open:border-primary transition-all duration-200"
+                                        open>
+                                        <summary
+                                            class="flex cursor-pointer items-center justify-between gap-4 p-5 list-none">
+                                            <h3 class="text-slate-900 dark:text-white text-base font-semibold pr-4">Hoe
+                                                werkt het aankoopproces precies?</h3>
+                                            <span
+                                                class="material-symbols-outlined text-slate-500 group-open:rotate-180 group-open:text-primary transition-transform duration-300">expand_more</span>
+                                        </summary>
+                                        <div
+                                            class="px-5 pb-5 pt-0 text-slate-500 dark:text-slate-400 text-sm leading-relaxed border-t border-transparent group-open:border-slate-100 dark:group-open:border-slate-800 group-open:pt-4">
+                                            <p>Het proces is simpel en transparant. U bekijkt ons aanbod online en plant
+                                                een bezichtiging via ons formulier. Tijdens de bezichtiging inspecteren
+                                                we samen het chalet. Bij akkoord stellen we een duidelijk koopcontract
+                                                op. Wij regelen vervolgens desgewenst het transport en de plaatsing. U
+                                                betaalt volgens transparante, vooraf afgesproken termijnen.</p>
+                                        </div>
+                                    </details>
+
+                                    <details data-category="transport"
+                                        class="faq-item group bg-white dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-slate-800 open:ring-2 open:ring-primary/20 open:border-primary transition-all duration-200">
+                                        <summary
+                                            class="flex cursor-pointer items-center justify-between gap-4 p-5 list-none">
+                                            <h3 class="text-slate-900 dark:text-white text-base font-semibold pr-4">Zijn
+                                                jullie chalets en stacaravans transportabel?</h3>
+                                            <span
+                                                class="material-symbols-outlined text-slate-500 group-open:rotate-180 group-open:text-primary transition-transform duration-300">expand_more</span>
+                                        </summary>
+                                        <div
+                                            class="px-5 pb-5 pt-0 text-slate-500 dark:text-slate-400 text-sm leading-relaxed border-t border-transparent group-open:border-slate-100 dark:group-open:border-slate-800 group-open:pt-4">
+                                            <p>Ja, al onze aangeboden chalets en stacaravans zijn volledig
+                                                transportabel. Wij werken samen met gespecialiseerde transportpartners
+                                                die uw aankoop veilig naar elke gewenste camping of kavel in Nederland
+                                                kunnen vervoeren. Kosten hiervoor zijn afhankelijk van de afstand en
+                                                eventueel benodigd kraanwerk gedurende plaatsing.</p>
+                                        </div>
+                                    </details>
+
+                                    <details data-category="kwaliteit"
+                                        class="faq-item group bg-white dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-slate-800 open:ring-2 open:ring-primary/20 open:border-primary transition-all duration-200">
+                                        <summary
+                                            class="flex cursor-pointer items-center justify-between gap-4 p-5 list-none">
+                                            <h3 class="text-slate-900 dark:text-white text-base font-semibold pr-4">
+                                                Welke garanties bieden jullie op een (gerenoveerd) chalet?</h3>
+                                            <span
+                                                class="material-symbols-outlined text-slate-500 group-open:rotate-180 group-open:text-primary transition-transform duration-300">expand_more</span>
+                                        </summary>
+                                        <div
+                                            class="px-5 pb-5 pt-0 text-slate-500 dark:text-slate-400 text-sm leading-relaxed border-t border-transparent group-open:border-slate-100 dark:group-open:border-slate-800 group-open:pt-4">
+                                            <p>Wij staan volledig achter de kwaliteit van onze renovaties. Op
+                                                gerenoveerde modellen bieden wij standaard garantie op het dak
+                                                (waterdichtheid) en de hoofdleidingen (gas en water). Voor jongere
+                                                occasions gelden in veel gevallen nog fabrieksgaranties. Dit wordt per
+                                                specifiek object in een transparant keuringsrapport vastgelegd.</p>
+                                        </div>
+                                    </details>
+
+                                    <details data-category="aankoopproces"
+                                        class="faq-item group bg-white dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-slate-800 open:ring-2 open:ring-primary/20 open:border-primary transition-all duration-200">
+                                        <summary
+                                            class="flex cursor-pointer items-center justify-between gap-4 p-5 list-none">
+                                            <h3 class="text-slate-900 dark:text-white text-base font-semibold pr-4">Hoe
+                                                snel krijg ik antwoord na een informatieaanvraag?</h3>
+                                            <span
+                                                class="material-symbols-outlined text-slate-500 group-open:rotate-180 group-open:text-primary transition-transform duration-300">expand_more</span>
+                                        </summary>
+                                        <div
+                                            class="px-5 pb-5 pt-0 text-slate-500 dark:text-slate-400 text-sm leading-relaxed border-t border-transparent group-open:border-slate-100 dark:group-open:border-slate-800 group-open:pt-4">
+                                            <p>Dankzij onze geavanceerde systemen (GoHighLevel) ontvangt u vrijwel
+                                                direct een automatische (maar persoonlijke) bevestiging van uw aanvraag.
+                                                Binnen werkuren neemt één van onze specialisten doorgaans al binnen 2
+                                                uur persoonlijk contact met u op om uw vragen te beantwoorden of een
+                                                bezichtiging te plannen.</p>
+                                        </div>
+                                    </details>
+
+                                    <details data-category="kosten"
+                                        class="faq-item group bg-white dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-slate-800 open:ring-2 open:ring-primary/20 open:border-primary transition-all duration-200">
+                                        <summary
+                                            class="flex cursor-pointer items-center justify-between gap-4 p-5 list-none">
+                                            <h3 class="text-slate-900 dark:text-white text-base font-semibold pr-4">
+                                                Nemen jullie mijn oude stacaravan in ruil?</h3>
+                                            <span
+                                                class="material-symbols-outlined text-slate-500 group-open:rotate-180 group-open:text-primary transition-transform duration-300">expand_more</span>
+                                        </summary>
+                                        <div
+                                            class="px-5 pb-5 pt-0 text-slate-500 dark:text-slate-400 text-sm leading-relaxed border-t border-transparent group-open:border-slate-100 dark:group-open:border-slate-800 group-open:pt-4">
+                                            <p>Ja, inruil is in de meeste gevallen mogelijk. U kunt ons foto's en
+                                                specificaties van uw huidige object toesturen, waarna wij een eerlijk
+                                                inruilvoorstel maken. Dit scheelt u niet alleen de moeite van het zelf
+                                                verkopen, maar zorgt er ook voor dat we uw oude caravan direct kunnen
+                                                meenemen bij het plaatsen van de nieuwe.</p>
+                                        </div>
+                                    </details>
+
+                                    <details data-category="kwaliteit"
+                                        class="faq-item group bg-white dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-slate-800 open:ring-2 open:ring-primary/20 open:border-primary transition-all duration-200">
+                                        <summary
+                                            class="flex cursor-pointer items-center justify-between gap-4 p-5 list-none">
+                                            <h3 class="text-slate-900 dark:text-white text-base font-semibold pr-4">Kan
+                                                ik het chalet bekijken voordat deze volledig gerenoveerd is?</h3>
+                                            <span
+                                                class="material-symbols-outlined text-slate-500 group-open:rotate-180 group-open:text-primary transition-transform duration-300">expand_more</span>
+                                        </summary>
+                                        <div
+                                            class="px-5 pb-5 pt-0 text-slate-500 dark:text-slate-400 text-sm leading-relaxed border-t border-transparent group-open:border-slate-100 dark:group-open:border-slate-800 group-open:pt-4">
+                                            <p>Zeker. Op ons showterrein kunt u de chalets vaak al bezichtigen tijdens
+                                                het renovatieproces. Dit geeft u soms de mogelijkheid om nog specifieke
+                                                wensen (zoals vloerkeuzes of badkamerinrichting) door te geven. Neem
+                                                contact op over onze "Gerenoveerd-op-maat" opties.</p>
+                                        </div>
+                                    </details>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Global Footer -->
+        <footer
+            class="border-t border-slate-200 bg-white pt-16 pb-8 dark:border-slate-800 dark:bg-background-dark mt-auto">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-5">
+                    <div class="col-span-2 lg:col-span-2">
+                        <div class="flex items-center gap-2 mb-4">
+                            <div class="flex size-6 items-center justify-center rounded bg-primary text-white">
+                                <span class="material-symbols-outlined text-sm">chalet</span>
+                            </div>
+                            <span class="text-lg font-bold tracking-tight text-slate-900 dark:text-white">Winkoop
+                                Chalets</span>
+                        </div>
+                        <p class="max-w-xs text-sm text-slate-500 dark:text-slate-400">
+                            De meest betrouwbare partner voor de aan- en verkoop van gerenoveerde mobiele chalets en
+                            stacaravans
+                            in Nederland.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="mb-3 text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white">Main
+                            Menu
+                        </h3>
+                        <ul class="space-y-2">
+                            <li><a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400"
+                                    href="index.html">Home</a></li>
+                            <li><a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400"
+                                    href="aanbod.html">Aanbod</a></li>
+                            <li><a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400"
+                                    href="werkwijze.html">Werkwijze</a></li>
+                            <li><a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400"
+                                    href="garanties.html">Garanties</a></li>
+                            <li><a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400"
+                                    href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="mb-3 text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white">
+                            Support &
+                            Legal</h3>
+                        <ul class="space-y-2">
+                            <li><a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400"
+                                    href="faq.html">FAQ</a>
+                            </li>
+                            <li><a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400"
+                                    href="algemene-voorwaarden.html">Algemene Voorwaarden</a></li>
+                            <li><a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400"
+                                    href="privacy-policy.html">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="mb-3 text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white">
+                            Contact</h3>
+                        <ul class="space-y-2">
+                            <li><a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400"
+                                    href="contact.html">info@winkoopchalets.nl</a></li>
+                            <li><span class="text-sm text-slate-500 dark:text-slate-400">0342 - 123 456</span></li>
+                            <li class="text-sm text-slate-500 dark:text-slate-400 mt-2">Ma-Vr, 09:00 - 17:00</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-12 border-t border-slate-100 pt-8 dark:border-slate-800">
+                    <p class="text-center text-sm text-slate-400">
+                        © 2026 Winkoop Chalets B.V. Alle rechten voorbehouden.
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- LOGIC LAYER: FAQ FILTERING -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const buttons = document.querySelectorAll('.category-btn');
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const category = button.getAttribute('data-category');
+
+                    // Update button styling dynamically
+                    buttons.forEach(btn => {
+                        if (btn === button) {
+                            btn.className = "category-btn flex items-center gap-3 px-3 py-3 rounded-lg bg-primary/10 text-primary font-medium transition-colors w-full text-left";
+                        } else {
+                            btn.className = "category-btn flex items-center gap-3 px-3 py-3 rounded-lg text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white font-medium transition-colors w-full text-left";
+                        }
+                    });
+
+                    // Filter FAQ items
+                    faqItems.forEach(item => {
+                        const itemCategory = item.getAttribute('data-category');
+                        if (category === 'show-all' || category === itemCategory) {
+                            item.classList.remove('hidden');
+                        } else {
+                            item.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

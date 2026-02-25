@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx puppeteer screenshot *)",
+      "Bash(npx serve *)",
+      "Bash(npm install *)",
+      "Bash(npm run dev:*)",
+      "Bash(npm run build:*)",
+      "Bash(cmd //c \"taskkill /F /IM node.exe 2>nul; exit 0\")",
+      "Bash(taskkill:*)",
+      "Bash(cmd //c \"taskkill /F /IM node.exe\")"
+    ]
+  }
+}

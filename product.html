@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Chalet Details | Winkoop Chalets</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#307de8",
+                        "primary-dark": "#1f62c4",
+                        secondary: "#8b7355", // Natural wood tone
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111821",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a2430",
+                        "text-main": "#111418",
+                        "text-muted": "#637288",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .view-hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-text-main dark:text-slate-100 min-h-screen flex flex-col">
+    <!-- WINKOOP APP CONTAINER (Scoped for GHL) -->
+    <div id="winkoop-app-container" class="flex flex-col min-h-screen w-full">
+
+        <!-- Global Header -->
+        <header
+            class="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 backdrop-blur dark:border-slate-800 dark:bg-background-dark/95">
+            <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+                <a href="index.html" class="flex items-center gap-2">
+                    <div class="flex size-8 items-center justify-center rounded bg-primary/10 text-primary">
+                        <span class="material-symbols-outlined">chalet</span>
+                    </div>
+                    <span class="text-lg font-bold tracking-tight text-slate-900 dark:text-white">Winkoop Chalets</span>
+                </a>
+                <nav class="hidden md:flex items-center gap-8">
+                    <a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 transition-colors"
+                        href="aanbod.html">Aanbod</a>
+                    <a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 transition-colors"
+                        href="werkwijze.html">Werkwijze</a>
+                    <a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 transition-colors"
+                        href="garanties.html">Garanties</a>
+                    <a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 transition-colors"
+                        href="contact.html">Contact</a>
+                    <a class="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 transition-colors"
+                        href="faq.html">FAQ</a>
+                </nav>
+                <div class="flex items-center gap-3">
+                    <a href="aanbod.html"
+                        class="flex h-9 items-center justify-center rounded-lg bg-primary px-4 text-sm font-bold text-white shadow-sm transition-colors hover:bg-primary/90">
+                        Aanbod Bekijken
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <main class="flex-1 w-full max-w-7xl mx-auto py-6" id="app-main-content">
+            <!-- LOADER -->
+            <div id="view-loader" class="flex flex-col items-center justify-center py-20">
+                <span class="material-symbols-outlined animate-spin text-4xl text-primary">autorenew</span>
+                <p class="mt-4 text-text-muted font-medium">Data ophalen...</p>
+            </div>
+
+            <!-- VIEW 2: DYNAMIC LISTING DETAIL (Populated on load) -->
+            <div id="view-details" class="view-hidden px-4 lg:px-10">
+                <!-- Breadcrumbs -->
+                <div class="flex flex-wrap items-center gap-2 mb-6 text-sm">
+                    <a class="text-text-muted hover:text-primary transition-colors" href="index.html">Home</a>
+                    <span class="text-text-muted">/</span>
+                    <a class="text-text-muted hover:text-primary transition-colors" href="aanbod.html">Aanbod</a>
+                    <span class="text-text-muted">/</span>
+                    <span class="data-bind-detail-title text-text-main dark:text-white font-medium">Loading...</span>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    <!-- Left Column: Gallery & Details -->
+                    <div class="lg:col-span-8 flex flex-col gap-8">
+                        <!-- Hero Gallery -->
+                        <div class="relative w-full rounded-xl overflow-hidden shadow-sm group">
+                            <div class="relative aspect-[16/9] lg:aspect-video w-full bg-slate-200">
+                                <img class="data-bind-detail-image w-full h-full object-cover"
+                                    src="https://placehold.co/1200x800/eeeeee/999999?text=Gallery+Loading" />
+                                <!-- Badge -->
+                                <div
+                                    class="absolute top-4 left-4 bg-green-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md flex items-center gap-1.5 uppercase tracking-wide">
+                                    <span class="material-symbols-outlined text-sm">verified</span>
+                                    Verzekerd / Gecontroleerd
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tabs Navigation -->
+                        <div
+                            class="border-b border-slate-200 dark:border-slate-700 sticky top-[72px] bg-background-light dark:bg-background-dark z-30 pt-4">
+                            <nav aria-label="Tabs" class="flex gap-6 overflow-x-auto no-scrollbar">
+                                <a class="whitespace-nowrap border-b-2 border-primary py-3 px-1 text-sm font-semibold text-primary"
+                                    href="#beschrijving">
+                                    Beschrijving
+                                </a>
+                                <a class="whitespace-nowrap border-b-2 border-transparent py-3 px-1 text-sm font-medium text-text-muted hover:border-slate-300 hover:text-text-main dark:hover:text-white"
+                                    href="#specificaties">
+                                    Specificaties
+                                </a>
+                                <a class="whitespace-nowrap border-b-2 border-transparent py-3 px-1 text-sm font-medium text-text-muted hover:border-slate-300 hover:text-text-main dark:hover:text-white"
+                                    href="#renovatie">
+                                    Renovatie
+                                </a>
+                                <a class="whitespace-nowrap border-b-2 border-transparent py-3 px-1 text-sm font-medium text-text-muted hover:border-slate-300 hover:text-text-main dark:hover:text-white"
+                                    href="#locatie">
+                                    Locatie &amp; Transport
+                                </a>
+                            </nav>
+                        </div>
+
+                        <!-- Section: Beschrijving -->
+                        <section
+                            class="bg-white dark:bg-surface-dark p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 scroll-mt-32"
+                            id="beschrijving">
+                            <h3 class="text-xl font-bold mb-4">Over dit chalet</h3>
+                            <div
+                                class="data-bind-detail-desc prose dark:prose-invert max-w-none text-text-muted dark:text-slate-300">
+                                ...
+                            </div>
+                        </section>
+
+                        <!-- Section: Specificaties (Airtable Mapped) -->
+                        <section
+                            class="bg-white dark:bg-surface-dark p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 scroll-mt-32"
+                            id="specificaties">
+                            <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary">tune</span>
+                                Technische Specificaties
+                            </h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-12">
+                                <div>
+                                    <h4 class="font-semibold text-sm uppercase tracking-wider text-text-muted mb-3">
+                                        Algemeen</h4>
+                                    <ul class="space-y-3">
+                                        <li
+                                            class="flex justify-between border-b border-slate-100 dark:border-slate-700 pb-2">
+                                            <span class="text-slate-600 dark:text-slate-400">Bouwjaar</span>
+                                            <span class="font-medium data-bind-spec-bouwjaar">...</span>
+                                        </li>
+                                        <li
+                                            class="flex justify-between border-b border-slate-100 dark:border-slate-700 pb-2">
+                                            <span class="text-slate-600 dark:text-slate-400">Afmetingen</span>
+                                            <span class="font-medium data-bind-spec-afmetingen">...</span>
+                                        </li>
+                                        <li
+                                            class="flex justify-between border-b border-slate-100 dark:border-slate-700 pb-2">
+                                            <span class="text-slate-600 dark:text-slate-400">Slaapkamers</span>
+                                            <span class="font-medium data-bind-spec-slaapkamers">...</span>
+                                        </li>
+                                        <li
+                                            class="flex justify-between border-b border-slate-100 dark:border-slate-700 pb-2">
+                                            <span class="text-slate-600 dark:text-slate-400">Badkamers</span>
+                                            <span class="font-medium data-bind-spec-badkamers">...</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-sm uppercase tracking-wider text-text-muted mb-3">
+                                        Comfort &amp; Energie</h4>
+                                    <ul class="space-y-3">
+                                        <li
+                                            class="flex justify-between border-b border-slate-100 dark:border-slate-700 pb-2">
+                                            <span class="text-slate-600 dark:text-slate-400">Verwarming</span>
+                                            <span class="font-medium data-bind-spec-verwarming">...</span>
+                                        </li>
+                                        <li
+                                            class="flex justify-between border-b border-slate-100 dark:border-slate-700 pb-2">
+                                            <span class="text-slate-600 dark:text-slate-400">Kozijnen</span>
+                                            <span class="font-medium data-bind-spec-kozijnen">...</span>
+                                        </li>
+                                        <li
+                                            class="flex justify-between border-b border-slate-100 dark:border-slate-700 pb-2">
+                                            <span class="text-slate-600 dark:text-slate-400">Isolatie</span>
+                                            <span class="font-medium data-bind-spec-isolatie">...</span>
+                                        </li>
+                                        <li
+                                            class="flex justify-between border-b border-slate-100 dark:border-slate-700 pb-2">
+                                            <span class="text-slate-600 dark:text-slate-400">Airco</span>
+                                            <span class="font-medium data-bind-spec-airco">...</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Section: Renovatie Overzicht (STATIC) -->
+                        <section
+                            class="bg-white dark:bg-surface-dark p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 scroll-mt-32"
+                            id="renovatie">
+                            <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                                <span class="material-symbols-outlined text-secondary">handyman</span>
+                                Renovatie Overzicht
+                            </h3>
+                            <p class="text-text-muted dark:text-slate-300 mb-6">
+                                Dit chalet is volledig nagekeken en gerenoveerd door ons eigen team van vakmensen.
+                                Hieronder vindt u de uitgevoerde werkzaamheden.
+                            </p>
+                            <div class="bg-background-light dark:bg-slate-800 rounded-lg p-5">
+                                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <li class="flex items-start gap-3">
+                                        <span
+                                            class="material-symbols-outlined text-green-500 mt-0.5">check_circle</span>
+                                        <span class="text-sm dark:text-slate-200">Volledige buitenzijde gereinigd en
+                                            behandeld</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span
+                                            class="material-symbols-outlined text-green-500 mt-0.5">check_circle</span>
+                                        <span class="text-sm dark:text-slate-200">Nieuwe PVC vloer gelegd door gehele
+                                            chalet</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span
+                                            class="material-symbols-outlined text-green-500 mt-0.5">check_circle</span>
+                                        <span class="text-sm dark:text-slate-200">CV-ketel onderhoudsbeurt en
+                                            keuring</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span
+                                            class="material-symbols-outlined text-green-500 mt-0.5">check_circle</span>
+                                        <span class="text-sm dark:text-slate-200">Keukenapparatuur getest en deels
+                                            vernieuwd</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span
+                                            class="material-symbols-outlined text-green-500 mt-0.5">check_circle</span>
+                                        <span class="text-sm dark:text-slate-200">Hang- en sluitwerk
+                                            gecontroleerd</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span
+                                            class="material-symbols-outlined text-green-500 mt-0.5">check_circle</span>
+                                        <span class="text-sm dark:text-slate-200">Kitwerk badkamer vernieuwd</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        <!-- Section: Locatie & Transport (STATIC) -->
+                        <section
+                            class="bg-white dark:bg-surface-dark p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 scroll-mt-32"
+                            id="locatie">
+                            <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary">local_shipping</span>
+                                Locatie &amp; Transport
+                            </h3>
+                            <div class="flex flex-col md:flex-row gap-6">
+                                <div class="flex-1">
+                                    <p class="text-text-muted dark:text-slate-300 mb-4">
+                                        Dit chalet staat momenteel op ons showterrein in <strong>Barneveld</strong>. Het
+                                        is direct beschikbaar en kan op korte termijn worden getransporteerd naar uw
+                                        locatie.
+                                    </p>
+                                    <div
+                                        class="bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800 rounded-lg p-4">
+                                        <h4
+                                            class="font-semibold text-primary dark:text-blue-300 mb-2 text-sm uppercase">
+                                            Transport Service</h4>
+                                        <p class="text-sm text-slate-600 dark:text-slate-400">
+                                            Wij kunnen het transport en de plaatsing volledig voor u verzorgen. De
+                                            kosten hiervoor zijn afhankelijk van de afstand en de bereikbaarheid van de
+                                            standplaats. Vraag gerust een vrijblijvende offerte aan.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-full md:w-1/3 min-h-[200px] bg-slate-200 rounded-lg overflow-hidden relative">
+                                    <img class="w-full h-full object-cover opacity-80"
+                                        data-alt="Map location illustration" data-location="Barneveld"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa5jJ24GyDGnkr9sgerJkAGT5a7TRCLynvoIden-fWv9uYx7sUswkkkySI9AYLJDQZZjB3y6sPsLqQxZ3OCSKjCEq3wpJS1LIR3nNTFbb9qiT2yTn1EX7gHGIMRmtrKahEc9zcOsYKt28yO6QbhPbwC6_tO4B6B21-fFdhhUqIDgblUhMe89yoZi8h1jJpVADjLYdIQDNGM-UfJFbqZacS4LsRUEmAjz9-A8fKrKDsdMNiBVywi3kjDEU1lGj2Rgjt2suNApYq2Cs" />
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <div
+                                            class="bg-white dark:bg-slate-800 px-3 py-1 rounded shadow-md text-xs font-bold flex items-center gap-1">
+                                            <span
+                                                class="material-symbols-outlined text-red-500 text-sm">location_on</span>
+                                            Showterrein Barneveld
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- Right Column: Sticky Sidebar -->
+                    <div class="lg:col-span-4 relative">
+                        <div class="sticky top-24 space-y-4">
+                            <!-- Pricing Card -->
+                            <div
+                                class="bg-white dark:bg-surface-dark rounded-xl shadow-lg border border-slate-100 dark:border-slate-800 overflow-hidden">
+                                <div class="p-6">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span
+                                            class="bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 text-xs font-bold px-2 py-1 rounded uppercase">Beschikbaar</span>
+                                        <span class="data-bind-detail-ref text-text-muted text-sm">Ref: #...</span>
+                                    </div>
+                                    <h2
+                                        class="data-bind-detail-price text-3xl font-bold text-text-main dark:text-white mb-1">
+                                        ...</h2>
+                                    <p class="text-sm text-text-muted mb-6">Marge regeling van toepassing</p>
+
+                                    <div
+                                        class="grid grid-cols-3 gap-2 mb-6 border-y border-slate-100 dark:border-slate-700 py-4">
+                                        <div
+                                            class="text-center border-r border-slate-100 dark:border-slate-700 last:border-0">
+                                            <span
+                                                class="block material-symbols-outlined text-text-muted text-2xl mb-1">square_foot</span>
+                                            <span class="data-bind-detail-size text-xs font-medium block">...</span>
+                                        </div>
+                                        <div
+                                            class="text-center border-r border-slate-100 dark:border-slate-700 last:border-0">
+                                            <span
+                                                class="block material-symbols-outlined text-text-muted text-2xl mb-1">bed</span>
+                                            <span class="data-bind-detail-beds text-xs font-medium block">...</span>
+                                        </div>
+                                        <div class="text-center">
+                                            <!-- THE ICON EXCEPTION: Shower instead of Calendar -->
+                                            <span
+                                                class="block material-symbols-outlined text-text-muted text-2xl mb-1">shower</span>
+                                            <span class="data-bind-detail-baths text-xs font-medium block">...</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="space-y-3">
+                                        <button type="button"
+                                            class="w-full bg-primary hover:bg-primary-dark text-white font-bold py-3 px-4 rounded-lg shadow-md transition-all transform active:scale-[0.98] flex items-center justify-center gap-2">
+                                            <span class="material-symbols-outlined">calendar_add_on</span>
+                                            Plan een bezichtiging
+                                        </button>
+                                        <a href="contact.html"
+                                            class="w-full bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 hover:border-primary dark:hover:border-primary text-text-main dark:text-white font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                            <span class="material-symbols-outlined">mail</span>
+                                            Stuur bericht
+                                        </a>
+                                        <a href="tel:0342123456"
+                                            class="w-full bg-transparent hover:bg-slate-50 dark:hover:bg-slate-800 text-text-muted hover:text-text-main dark:hover:text-white font-medium py-2 px-4 rounded-lg transition-colors text-sm flex items-center justify-center gap-2">
+                                            <span class="material-symbols-outlined text-lg">call</span>
+                                            Bel direct: 0342 - 123 456
+                                        </a>
+                                    </div>
+                                </div>
+                                <div
+                                    class="bg-slate-50 dark:bg-slate-800 px-6 py-4 border-t border-slate-100 dark:border-slate-700 flex items-center justify-center gap-4 text-xs text-text-muted">
+                                    <span class="flex items-center gap-1"><span
+                                            class="material-symbols-outlined text-base">verified_user</span>
+                                        Garantie</span>
+                                    <span class="flex items-center gap-1"><span
+                                            class="material-symbols-outlined text-base">local_shipping</span>
+                                        Transport</span>
+                                    <span class="flex items-center gap-1"><span
+                                            class="material-symbols-outlined text-base">handshake</span> Inruil</span>
+                                </div>
+                            </div>
+
+                            <!-- Small USP Card -->
+                            <div
+                                class="bg-white dark:bg-surface-dark rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 p-5">
+                                <h4 class="font-bold text-sm mb-3 text-secondary uppercase">Waarom Winkoop Chalets?</h4>
+                                <ul class="space-y-2 text-sm">
+                                    <li class="flex gap-2 items-start">
+                                        <span
+                                            class="material-symbols-outlined text-green-500 text-lg">check_small</span>
+                                        <span class="text-slate-600 dark:text-slate-400">Grondige technische
+                                            keuring</span>
+                                    </li>
+                                    <li class="flex gap-2 items-start">
+                                        <span
+                                            class="material-symbols-outlined text-green-500 text-lg">check_small</span>
+                                        <span class="text-slate-600 dark:text-slate-400">Eerlijke prijzen, geen
+                                            verrassingen</span>
+                                    </li>
+                                    <li class="flex gap-2 items-start">
+                                        <span
+                                            class="material-symbols-outlined text-green-500 text-lg">check_small</span>
+                                        <span class="text-slate-600 dark:text-slate-400">Persoonlijke begeleiding</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Global Footer -->
+        <footer
+            class="border-t border-slate-200 bg-white pt-16 pb-8 dark:border-slate-800 dark:bg-background-dark mt-auto">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-5">
+                    <div class="col-span-2 lg:col-span-2">
+                        <div class="flex items-center gap-2 mb-4">
+                            <div class="flex size-6 items-center justify-center rounded bg-primary text-white">
+                                <span class="material-symbols-outlined text-sm">chalet</span>
+                            </div>
+                            <span class="text-lg font-bold tracking-tight text-slate-900 dark:text-white">Winkoop
+                                Chalets</span>
+                        </div>
+                        <p class="max-w-xs text-sm text-slate-500 dark:text-slate-400">
+                            De meest betrouwbare partner voor de aan- en verkoop van gerenoveerde mobiele chalets en
+                            stacaravans
+                            in Nederland.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="mb-3 text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white">Main
+                            Menu
+                        </h3>
+                        <ul class="space-y-2">
+                            <li><a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400"
+                                    href="index.html">Home</a></li>
+                            <li><a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400"
+                                    href="aanbod.html">Aanbod</a></li>
+                            <li><a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400"
+                                    href="werkwijze.html">Werkwijze</a></li>
+                            <li><a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400"
+                                    href="garanties.html">Garanties</a></li>
+                            <li><a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400"
+                                    href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="mb-3 text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white">
+                            Support &
+                            Legal</h3>
+                        <ul class="space-y-2">
+                            <li><a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400"
+                                    href="faq.html">FAQ</a>
+                            </li>
+                            <li><a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400"
+                                    href="algemene-voorwaarden.html">Algemene Voorwaarden</a></li>
+                            <li><a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400"
+                                    href="privacy-policy.html">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="mb-3 text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white">
+                            Contact</h3>
+                        <ul class="space-y-2">
+                            <li><a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400"
+                                    href="contact.html">info@winkoopchalets.nl</a></li>
+                            <li><span class="text-sm text-slate-500 dark:text-slate-400">0342 - 123 456</span></li>
+                            <li class="text-sm text-slate-500 dark:text-slate-400 mt-2">Ma-Vr, 09:00 - 17:00</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-12 border-t border-slate-100 pt-8 dark:border-slate-800">
+                    <p class="text-center text-sm text-slate-400">
+                        © 2026 Winkoop Chalets B.V. Alle rechten voorbehouden.
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- WINKOOP CONFIGURATION -->
+    <!-- WINKOOP CONFIGURATION -->
+    <script src="config.js"></script>
+
+    <!-- LOGIC LAYER: VANILLA JS AIRTABLE FETCH -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const MOCK_DATA = [
+                { id: "rec1", fields: { Title: "Forest Cabin Deluxe", Price: "€32.500", Size: "42m²", Beds: "2", Baths: "1", Year: "2018", Type: "Gerenoveerd", ImageURL: "https://placehold.co/800x600/111821/ffffff?text=Forest+Cabin" } },
+                { id: "rec2", fields: { Title: "Sunny Valley Home", Price: "€28.000", Size: "38m²", Beds: "3", Baths: "1", Year: "2015", Type: "As-Is", ImageURL: "https://placehold.co/800x600/307de8/ffffff?text=Sunny+Valley" } }
+            ];
+
+            const viewLoader = document.getElementById("view-loader");
+            const viewDetails = document.getElementById("view-details");
+            const urlParams = new URLSearchParams(window.location.search);
+            const selectedProductId = urlParams.get('product_id');
+
+            if (!selectedProductId) {
+                window.location.href = "aanbod.html";
+                return;
+            }
+
+            async function fetchSingleRecord() {
+                if (CONFIG.AIRTABLE_PAT !== "YOUR_PERSONAL_ACCESS_TOKEN" && CONFIG.AIRTABLE_BASE_ID !== "YOUR_BASE_ID") {
+                    const API_URL = `https://api.airtable.com/v0/${CONFIG.AIRTABLE_BASE_ID}/${CONFIG.AIRTABLE_TABLE_NAME}/${selectedProductId}`;
+                    try {
+                        const response = await fetch(API_URL, {
+                            headers: { 'Authorization': `Bearer ${CONFIG.AIRTABLE_PAT}` }
+                        });
+                        if (response.status === 404) throw new Error("not_found");
+                        if (!response.ok) throw new Error("Airtable fetch failed");
+
+                        const record = await response.json();
+                        if (!record.fields.Name) throw new Error("not_found");
+                        return {
+                            id: record.id,
+                            fields: {
+                                Title: record.fields.Name || "Onbekend Chalet",
+                                Price: record.fields.Prijs ? `€${record.fields.Prijs.toLocaleString('nl-NL')}` : "Prijs op aanvraag",
+                                Size: record.fields.Formaat ? `${record.fields.Formaat}m²` : "-",
+                                Beds: record.fields.Bedrooms || "-",
+                                Baths: record.fields.Bathrooms || "-",
+                                Year: record.fields.Year || "-",
+                                Type: record.fields.Categorie || "Standaard",
+                                Description: record.fields.Description || record.fields.Beschrijving || record.fields.Omschrijving || "Geen beschrijving beschikbaar.",
+                                ImageURL: (record.fields.Afbeeldingen && record.fields.Afbeeldingen.length > 0) ? record.fields.Afbeeldingen[0].url : "https://placehold.co/1200x800/111821/ffffff?text=No+Image",
+                                Spec_Bouwjaar: record.fields.Spec_Bouwjaar || "-",
+                                Spec_Afmetingen: record.fields.Spec_Afmetingen || "-",
+                                Spec_Verwarming: record.fields.Spec_Verwarming || "-",
+                                Spec_Kozijnen: record.fields.Spec_Kozijnen || "-",
+                                Spec_Isolatie: record.fields.Spec_Isolatie || "-",
+                                Spec_Airco: record.fields.Spec_Airco || "-"
+                            }
+                        };
+                    } catch (error) {
+                        if (error.message === "not_found") throw error;
+                        console.error("Live Airtable Fetch Error, falling back to mock:", error);
+                    }
+                }
+
+                // Mock fallback search
+                return new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        const rec = MOCK_DATA.find(r => r.id === selectedProductId);
+                        if (rec) resolve(rec);
+                        else reject(new Error("not_found"));
+                    }, 600);
+                });
+            }
+
+            function renderDetailView(record) {
+                viewLoader.classList.add("view-hidden");
+
+                document.querySelector('.data-bind-detail-title').textContent = record.fields.Title;
+                document.querySelector('.data-bind-detail-price').textContent = record.fields.Price;
+                document.querySelector('.data-bind-detail-size').textContent = record.fields.Size;
+                document.querySelector('.data-bind-detail-beds').textContent = `${record.fields.Beds} Slaapk.`;
+                document.querySelector('.data-bind-detail-baths').textContent = `${record.fields.Baths} Badk.`;
+                document.querySelector('.data-bind-detail-ref').textContent = `Ref: #${record.id.substring(0, 8)}`;
+                document.querySelector('.data-bind-detail-image').src = record.fields.ImageURL;
+                document.querySelector('.data-bind-detail-desc').innerHTML = record.fields.Description;
+
+                // SPECIFICATIES MAPPINGS
+                document.querySelector('.data-bind-spec-bouwjaar').textContent = record.fields.Spec_Bouwjaar;
+                document.querySelector('.data-bind-spec-afmetingen').textContent = record.fields.Spec_Afmetingen;
+                document.querySelector('.data-bind-spec-slaapkamers').textContent = record.fields.Beds; // Exists natively
+                document.querySelector('.data-bind-spec-badkamers').textContent = record.fields.Baths; // Exists natively
+                document.querySelector('.data-bind-spec-verwarming').textContent = record.fields.Spec_Verwarming;
+                document.querySelector('.data-bind-spec-kozijnen').textContent = record.fields.Spec_Kozijnen;
+                document.querySelector('.data-bind-spec-isolatie').textContent = record.fields.Spec_Isolatie;
+                document.querySelector('.data-bind-spec-airco').textContent = record.fields.Spec_Airco;
+
+                const formId = document.getElementById('form_product_id');
+                const formTitle = document.getElementById('form_product_title');
+                if (formId) formId.value = record.id;
+                if (formTitle) formTitle.value = record.fields.Title;
+
+                viewDetails.classList.remove("view-hidden");
+            }
+
+            fetchSingleRecord().then(record => {
+                renderDetailView(record);
+            }).catch(err => {
+                if (err.message === "not_found") {
+                    viewLoader.innerHTML = `<div class="text-center"><p class="text-xl font-bold mb-4">Chalet niet gevonden</p><a href="aanbod.html" class="inline-block rounded-lg bg-primary px-6 py-3 text-sm font-bold text-white shadow hover:bg-primary/90">Terug naar aanbod</a></div>`;
+                } else {
+                    viewLoader.innerHTML = `<p class="text-red-500 font-bold">Error loading data.</p>`;
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

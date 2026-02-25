@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+
+<html lang="nl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Luxe Chalet Veluwe - ChaletSecondLife</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#478beb",
+                        "primary-dark": "#326ebc",
+                        "secondary": "#8b7355", // Natural wood brown tone
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111821",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a2430",
+                        "text-main": "#111418",
+                        "text-muted": "#637288",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Header -->
+<header class="sticky top-0 z-50 bg-white dark:bg-surface-dark border-b border-[#f0f2f4] dark:border-slate-700 px-4 lg:px-10 py-3 shadow-sm">
+<div class="layout-container flex max-w-7xl mx-auto w-full items-center justify-between">
+<div class="flex items-center gap-8">
+<a class="flex items-center gap-4 text-text-main dark:text-white hover:opacity-80 transition-opacity" href="#">
+<div class="size-8 text-primary">
+<span class="material-symbols-outlined text-3xl">cottage</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">ChaletSecondLife</h2>
+</a>
+<nav class="hidden md:flex items-center gap-9">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Aanbod</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Over ons</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Diensten</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Contact</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<label class="hidden lg:flex flex-col min-w-40 h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full bg-[#f0f2f4] dark:bg-slate-800">
+<div class="text-text-muted flex items-center justify-center pl-4 pr-2">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="w-full bg-transparent border-none focus:ring-0 text-sm p-0 pr-4 placeholder:text-text-muted text-text-main dark:text-white" placeholder="Zoek chalet..."/>
+</div>
+</label>
+<button class="flex items-center justify-center rounded-lg h-10 px-4 bg-primary hover:bg-primary-dark text-white text-sm font-bold transition-colors shadow-sm">
+<span class="truncate">Plan Bezichtiging</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-7xl mx-auto px-4 lg:px-10 py-6">
+<!-- Breadcrumbs -->
+<div class="flex flex-wrap items-center gap-2 mb-6 text-sm">
+<a class="text-text-muted hover:text-primary transition-colors" href="#">Home</a>
+<span class="text-text-muted">/</span>
+<a class="text-text-muted hover:text-primary transition-colors" href="#">Aanbod</a>
+<span class="text-text-muted">/</span>
+<span class="text-text-main dark:text-white font-medium">Luxe Chalet Veluwe</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Gallery & Details -->
+<div class="lg:col-span-8 flex flex-col gap-8">
+<!-- Hero Gallery -->
+<div class="relative w-full rounded-xl overflow-hidden shadow-sm group">
+<div class="relative aspect-video w-full bg-slate-200">
+<img alt="Exterior of a modern wooden chalet in nature" class="w-full h-full object-cover" data-alt="Modern wooden chalet exterior sunny day" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtMryS5wCZusUoFQl2XtnGUZJ7FI6fqz0kLxjPFzb5qYHg8isX2KSnEXpxQ35ECRjibUTYftYRopNTGvxWr3TfbTn3fy4z7nJFF5UCtZSx7jLxCsvGWH825SP9UWlo9tZzu-8DTDKE3VzRj3EIAHhSJNzdwHnRw2G6SUhMTOQzNtBQ_IIlncAESd3PFmMqRlXma6b62jCOtYediPeILvrHpix5ksNoVCVRW4ncnGlfCP22W4klJnRvi1QZvwo7_NQHUWMqruJBbG0"/>
+<!-- Badge -->
+<div class="absolute top-4 left-4 bg-green-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md flex items-center gap-1.5 uppercase tracking-wide">
+<span class="material-symbols-outlined text-sm">verified</span>
+                            Gecontroleerde Kwaliteit
+                        </div>
+<!-- Gallery Controls -->
+<button class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-slate-800 p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-slate-800 p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+<!-- View All Photos Button -->
+<button class="absolute bottom-4 right-4 bg-white/90 hover:bg-white text-slate-900 text-sm font-medium px-4 py-2 rounded-lg shadow-md flex items-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-lg">grid_view</span>
+                            Bekijk alle 24 foto's
+                        </button>
+</div>
+<!-- Thumbnails -->
+<div class="grid grid-cols-4 gap-2 mt-2">
+<div class="aspect-[4/3] rounded-lg overflow-hidden cursor-pointer hover:opacity-90 active:ring-2 ring-primary">
+<img class="w-full h-full object-cover" data-alt="Modern living room interior" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtF9p_P0hCCjGVy_71L0WKrsxm7AoGgXAvQ5VfKbrqISz0GicQBMT-_cjFvraYfV6qjAeh-OuKDD74yrvpnXB99wObJ-aGseUDkpgDvd6uH1y44IZGFYVAo9o-9VlJZQZupoZOmmtMBn8lrsHpDT93hz7d1j4xxYP17C0dqT7jpgOT54z1BNosXqTKxNtZFYjA11YRlNI1r5a6CoNMR4sjbIsf-xxa9QVYv8r5VkVV0JqX3lC8fluqNWbYlWS5_rmfOmqb9cIQ6p0"/>
+</div>
+<div class="aspect-[4/3] rounded-lg overflow-hidden cursor-pointer hover:opacity-90">
+<img class="w-full h-full object-cover" data-alt="Cozy bedroom with wooden walls" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQ-ziNj9YxsmyqsrgyRGQAsyym2l9kL_wE95jZjmco_6Awe7JudeFzEh9Lz-lacRzixUko9nvQJ562xhqZlNaYWBE2vEaQhafiw3EuiSpxVOQgkJKvhw6Wz1rgSvhdO1c_fs_iHam-G8ueUtsRqnEhtfCG7JUfn5bXQZ5uPZ9VlGx_3CDs0_AfsVtG2bHMQ_UdSSQFY6tnodgFr5xbAMdY1ddkzRqB8CeUvrjyk9Jg0xsRZ31jluL2A0RGiPeH-2Sy50YcI70hy7w"/>
+</div>
+<div class="aspect-[4/3] rounded-lg overflow-hidden cursor-pointer hover:opacity-90">
+<img class="w-full h-full object-cover" data-alt="Modern kitchen with white cabinets" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZq-MiUwHyigN8IoVl0agCX4ubcmQ5pka2E-cbdAX4oV3u7pRgjbYG8fmIY4FamuAeJEtCFGlTIzhZ8coG7B7lfkYULu9VtiKwFlL5M0UfynnMSQpF667jGUsFiV2NRx3VYmG39Dw3sgh2vPAF_spBj29CfGLnyGRUOPC--W8F6WXDga2IbL7_GNqQ_a7Oq-xouwrpGH4s3-R2cc71AmQ3ZJaIlpIDQVh3omF7x_Adc8WFVPiTZeW6W_rKInMGr0i8F7iLiYy-KbM"/>
+</div>
+<div class="aspect-[4/3] rounded-lg overflow-hidden cursor-pointer hover:opacity-90 relative">
+<img class="w-full h-full object-cover" data-alt="Modern bathroom with shower" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDl2V8Wc8n4jSTxZv9nY0zNhbI7wQp9WT5b3CgbGV1lbLKDP47t-bfZP6Nv5D7kVODWbhufWLx2uKhXPTx2fo2yAc8l_D4dzeKIdK989NiLgb9R3aQ83jxCrF3aS-VhcVKJLVyepBriCaXnGlI0UP90stqekjJSV6rFL9MB9xjEw81j-8Z2ZsxDwG6iU6SmkijzghuLCF3etQAbLWzoGiXn2dffOnJI-kkeXvmSLzS7XFw1jI3DDMFo3xrmvGzs4Zhqb3KjhM7cP9k"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center text-white font-medium text-lg backdrop-blur-[2px]">
+                                +20
+                            </div>
+</div>
+</div>
+</div>
+<!-- Tabs Navigation -->
+<div class="border-b border-slate-200 dark:border-slate-700 sticky top-[72px] bg-background-light dark:bg-background-dark z-30 pt-4">
+<nav aria-label="Tabs" class="flex gap-6 overflow-x-auto no-scrollbar">
+<a class="whitespace-nowrap border-b-2 border-primary py-3 px-1 text-sm font-semibold text-primary" href="#beschrijving">
+                            Beschrijving
+                        </a>
+<a class="whitespace-nowrap border-b-2 border-transparent py-3 px-1 text-sm font-medium text-text-muted hover:border-slate-300 hover:text-text-main dark:hover:text-white" href="#specificaties">
+                            Specificaties
+                        </a>
+<a class="whitespace-nowrap border-b-2 border-transparent py-3 px-1 text-sm font-medium text-text-muted hover:border-slate-300 hover:text-text-main dark:hover:text-white" href="#renovatie">
+                            Renovatie
+                        </a>
+<a class="whitespace-nowrap border-b-2 border-transparent py-3 px-1 text-sm font-medium text-text-muted hover:border-slate-300 hover:text-text-main dark:hover:text-white" href="#locatie">
+                            Locatie &amp; Transport
+                        </a>
+</nav>
+</div>
+<!-- Section: Beschrijving -->
+<section class="bg-white dark:bg-surface-dark p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 scroll-mt-32" id="beschrijving">
+<h3 class="text-xl font-bold mb-4">Over dit chalet</h3>
+<div class="prose dark:prose-invert max-w-none text-text-muted dark:text-slate-300">
+<p class="mb-4">
+                            Dit prachtige, volledig gerenoveerde chalet (model 2018) biedt de perfecte combinatie van luxe en comfort midden in de natuur. Met een royale oppervlakte van 45m² en hoogwaardige isolatie is dit chalet geschikt voor alle seizoenen. De lichte woonkamer met grote raampartijen zorgt voor een ruimtelijk gevoel en een naadloze verbinding met buiten.
+                        </p>
+<p>
+                            De open keuken is voorzien van moderne inbouwapparatuur, waaronder een vaatwasser en combi-oven. Het chalet beschikt over twee ruime slaapkamers met voldoende kastruimte en een moderne badkamer met regendouche. Ideaal voor wie op zoek is naar een zorgeloze tweede woning of een interessante verhuurinvestering.
+                        </p>
+</div>
+</section>
+<!-- Section: Specificaties -->
+<section class="bg-white dark:bg-surface-dark p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 scroll-mt-32" id="specificaties">
+<h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">tune</span>
+                        Technische Specificaties
+                    </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-12">
+<div>
+<h4 class="font-semibold text-sm uppercase tracking-wider text-text-muted mb-3">Algemeen</h4>
+<ul class="space-y-3">
+<li class="flex justify-between border-b border-slate-100 dark:border-slate-700 pb-2">
+<span class="text-slate-600 dark:text-slate-400">Bouwjaar</span>
+<span class="font-medium">2018</span>
+</li>
+<li class="flex justify-between border-b border-slate-100 dark:border-slate-700 pb-2">
+<span class="text-slate-600 dark:text-slate-400">Afmetingen</span>
+<span class="font-medium">11.50 x 4.00 m</span>
+</li>
+<li class="flex justify-between border-b border-slate-100 dark:border-slate-700 pb-2">
+<span class="text-slate-600 dark:text-slate-400">Slaapkamers</span>
+<span class="font-medium">2</span>
+</li>
+<li class="flex justify-between border-b border-slate-100 dark:border-slate-700 pb-2">
+<span class="text-slate-600 dark:text-slate-400">Badkamers</span>
+<span class="font-medium">1</span>
+</li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-sm uppercase tracking-wider text-text-muted mb-3">Comfort &amp; Energie</h4>
+<ul class="space-y-3">
+<li class="flex justify-between border-b border-slate-100 dark:border-slate-700 pb-2">
+<span class="text-slate-600 dark:text-slate-400">Verwarming</span>
+<span class="font-medium">CV-Ketel (Intergas 2023)</span>
+</li>
+<li class="flex justify-between border-b border-slate-100 dark:border-slate-700 pb-2">
+<span class="text-slate-600 dark:text-slate-400">Kozijnen</span>
+<span class="font-medium">Kunststof (Dubbel glas)</span>
+</li>
+<li class="flex justify-between border-b border-slate-100 dark:border-slate-700 pb-2">
+<span class="text-slate-600 dark:text-slate-400">Isolatie</span>
+<span class="font-medium">Winterhard</span>
+</li>
+<li class="flex justify-between border-b border-slate-100 dark:border-slate-700 pb-2">
+<span class="text-slate-600 dark:text-slate-400">Airco</span>
+<span class="font-medium">Voorbereiding aanwezig</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Section: Renovatie Overzicht -->
+<section class="bg-white dark:bg-surface-dark p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 scroll-mt-32" id="renovatie">
+<h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">handyman</span>
+                        Renovatie Overzicht
+                    </h3>
+<p class="text-text-muted dark:text-slate-300 mb-6">
+                        Dit chalet is in 2024 volledig nagekeken en gerenoveerd door ons eigen team van vakmensen. Hieronder vindt u de uitgevoerde werkzaamheden.
+                    </p>
+<div class="bg-background-light dark:bg-slate-800 rounded-lg p-5">
+<ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-green-500 mt-0.5">check_circle</span>
+<span class="text-sm dark:text-slate-200">Volledige buitenzijde gereinigd en behandeld</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-green-500 mt-0.5">check_circle</span>
+<span class="text-sm dark:text-slate-200">Nieuwe PVC vloer gelegd door gehele chalet</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-green-500 mt-0.5">check_circle</span>
+<span class="text-sm dark:text-slate-200">CV-ketel onderhoudsbeurt en keuring</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-green-500 mt-0.5">check_circle</span>
+<span class="text-sm dark:text-slate-200">Keukenapparatuur getest en deels vernieuwd</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-green-500 mt-0.5">check_circle</span>
+<span class="text-sm dark:text-slate-200">Hang- en sluitwerk gecontroleerd</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-green-500 mt-0.5">check_circle</span>
+<span class="text-sm dark:text-slate-200">Kitwerk badkamer vernieuwd</span>
+</li>
+</ul>
+</div>
+</section>
+<!-- Section: Locatie & Transport -->
+<section class="bg-white dark:bg-surface-dark p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 scroll-mt-32" id="locatie">
+<h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">local_shipping</span>
+                        Locatie &amp; Transport
+                    </h3>
+<div class="flex flex-col md:flex-row gap-6">
+<div class="flex-1">
+<p class="text-text-muted dark:text-slate-300 mb-4">
+                                Dit chalet staat momenteel op ons showterrein in <strong>Barneveld</strong>. Het is direct beschikbaar en kan op korte termijn worden getransporteerd naar uw locatie.
+                            </p>
+<div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800 rounded-lg p-4">
+<h4 class="font-semibold text-primary dark:text-blue-300 mb-2 text-sm uppercase">Transport Service</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400">
+                                    Wij kunnen het transport en de plaatsing volledig voor u verzorgen. De kosten hiervoor zijn afhankelijk van de afstand en de bereikbaarheid van de standplaats. Vraag gerust een vrijblijvende offerte aan.
+                                </p>
+</div>
+</div>
+<div class="w-full md:w-1/3 min-h-[200px] bg-slate-200 rounded-lg overflow-hidden relative">
+<!-- Placeholder for Map -->
+<img class="w-full h-full object-cover opacity-80" data-alt="Map location illustration" data-location="Barneveld" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa5jJ24GyDGnkr9sgerJkAGT5a7TRCLynvoIden-fWv9uYx7sUswkkkySI9AYLJDQZZjB3y6sPsLqQxZ3OCSKjCEq3wpJS1LIR3nNTFbb9qiT2yTn1EX7gHGIMRmtrKahEc9zcOsYKt28yO6QbhPbwC6_tO4B6B21-fFdhhUqIDgblUhMe89yoZi8h1jJpVADjLYdIQDNGM-UfJFbqZacS4LsRUEmAjz9-A8fKrKDsdMNiBVywi3kjDEU1lGj2Rgjt2suNApYq2Cs"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="bg-white dark:bg-slate-800 px-3 py-1 rounded shadow-md text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-red-500 text-sm">location_on</span>
+                                     Showterrein Barneveld
+                                 </div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Sticky Sidebar -->
+<div class="lg:col-span-4 relative">
+<div class="sticky top-24 space-y-4">
+<!-- Pricing Card -->
+<div class="bg-white dark:bg-surface-dark rounded-xl shadow-lg border border-slate-100 dark:border-slate-800 overflow-hidden">
+<div class="p-6">
+<div class="flex items-center justify-between mb-2">
+<span class="bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 text-xs font-bold px-2 py-1 rounded uppercase">Beschikbaar</span>
+<span class="text-text-muted text-sm">Ref: #CSL-2024-88</span>
+</div>
+<h2 class="text-3xl font-bold text-text-main dark:text-white mb-1">€ 45.000,-</h2>
+<p class="text-sm text-text-muted mb-6">Marge regeling van toepassing</p>
+<div class="grid grid-cols-3 gap-2 mb-6 border-y border-slate-100 dark:border-slate-700 py-4">
+<div class="text-center border-r border-slate-100 dark:border-slate-700 last:border-0">
+<span class="block material-symbols-outlined text-text-muted text-2xl mb-1">square_foot</span>
+<span class="text-xs font-medium block">45m²</span>
+</div>
+<div class="text-center border-r border-slate-100 dark:border-slate-700 last:border-0">
+<span class="block material-symbols-outlined text-text-muted text-2xl mb-1">bed</span>
+<span class="text-xs font-medium block">2 Slaapk.</span>
+</div>
+<div class="text-center">
+<span class="block material-symbols-outlined text-text-muted text-2xl mb-1">calendar_month</span>
+<span class="text-xs font-medium block">2018</span>
+</div>
+</div>
+<div class="space-y-3">
+<button class="w-full bg-primary hover:bg-primary-dark text-white font-bold py-3 px-4 rounded-lg shadow-md transition-all transform active:scale-[0.98] flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">calendar_add_on</span>
+                                    Plan een bezichtiging
+                                </button>
+<button class="w-full bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 hover:border-primary dark:hover:border-primary text-text-main dark:text-white font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">mail</span>
+                                    Stuur bericht
+                                </button>
+<button class="w-full bg-transparent hover:bg-slate-50 dark:hover:bg-slate-800 text-text-muted hover:text-text-main dark:hover:text-white font-medium py-2 px-4 rounded-lg transition-colors text-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">call</span>
+                                    Bel direct: 0342 - 123 456
+                                </button>
+</div>
+</div>
+<div class="bg-slate-50 dark:bg-slate-800 px-6 py-4 border-t border-slate-100 dark:border-slate-700 flex items-center justify-center gap-4 text-xs text-text-muted">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">verified_user</span> Garantie</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">local_shipping</span> Transport</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-base">handshake</span> Inruil</span>
+</div>
+</div>
+<!-- Small USP Card -->
+<div class="bg-white dark:bg-surface-dark rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 p-5">
+<h4 class="font-bold text-sm mb-3 text-secondary uppercase">Waarom ChaletSecondLife?</h4>
+<ul class="space-y-2 text-sm">
+<li class="flex gap-2 items-start">
+<span class="material-symbols-outlined text-green-500 text-lg">check_small</span>
+<span class="text-slate-600 dark:text-slate-400">Grondige technische keuring</span>
+</li>
+<li class="flex gap-2 items-start">
+<span class="material-symbols-outlined text-green-500 text-lg">check_small</span>
+<span class="text-slate-600 dark:text-slate-400">Eerlijke prijzen, geen verrassingen</span>
+</li>
+<li class="flex gap-2 items-start">
+<span class="material-symbols-outlined text-green-500 text-lg">check_small</span>
+<span class="text-slate-600 dark:text-slate-400">Persoonlijke begeleiding</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- Similar Chalets Carousel (Grid for simplicity here) -->
+<section class="mt-16 pt-8 border-t border-slate-200 dark:border-slate-700">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-2xl font-bold">Vergelijkbare Chalets</h3>
+<a class="text-primary font-medium hover:underline flex items-center gap-1" href="#">
+                    Bekijk aanbod
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Card 1 -->
+<a class="group block bg-white dark:bg-surface-dark rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 overflow-hidden hover:shadow-md transition-shadow" href="#">
+<div class="aspect-[4/3] bg-slate-200 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Wooden chalet sunny day" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0ZGEtuKFIlcAHeD-y2qJxk-p4kftf-kz6HiGghhb0b-PqhP-ouOlDCxmCzup2f0V2spHKB93GAbKFGT4_dE0oi7Ej3Xf2DkUzbceRQrSihLGK8jYjLYCEZ-5Pimbvq--uj9cLF4gXONo5FmuAKmbomFC1F6y7RY2dRmjUPAbNNTXdhXg6z0KwuzTSqQkC7XLVMdn7T0Ebe2S5XDQMcqRsaLMHEf_uqPjulutXgqbUdMhVJo7WRNErbJtle8aRJbVaBDy-NkdL0EU"/>
+<div class="absolute top-2 left-2 bg-white/90 px-2 py-0.5 rounded text-xs font-bold text-slate-800">
+                            Nieuw binnen
+                        </div>
+</div>
+<div class="p-4">
+<h4 class="font-bold text-lg mb-1 truncate">Nordic Special 1000</h4>
+<p class="text-primary font-bold text-lg mb-2">€ 39.500,-</p>
+<div class="flex items-center gap-3 text-xs text-text-muted">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">square_foot</span> 40m²</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">bed</span> 2</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">calendar_month</span> 2016</span>
+</div>
+</div>
+</a>
+<!-- Card 2 -->
+<a class="group block bg-white dark:bg-surface-dark rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 overflow-hidden hover:shadow-md transition-shadow" href="#">
+<div class="aspect-[4/3] bg-slate-200 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Modern living room interior view" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPCFd0MxtNyhJAtufNU6lha6rz1Jc7m-cUw9HgyToVoigbvLvvFClM61qpnFQBqS62sYEpnIbE1rA0yEOTkG9OdbWhi00d9VdEJ_I_IJHukDmAksbB_fEXd_mShM9BN4633eSWEVuqZ5vgOsaLoXRmx5_-LIhnlsbFtwEqLce8K3qocgVtA8_Hme18A_8nvJVzkaZNHuSrb8MmDOqFxRUTG2iNhofDHxlY00Bmtaz7lwuQ1GamwGOZU8craGNmuYibPS4hGEmO2AU"/>
+</div>
+<div class="p-4">
+<h4 class="font-bold text-lg mb-1 truncate">Forest Lodge Deluxe</h4>
+<p class="text-primary font-bold text-lg mb-2">€ 52.000,-</p>
+<div class="flex items-center gap-3 text-xs text-text-muted">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">square_foot</span> 55m²</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">bed</span> 3</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">calendar_month</span> 2019</span>
+</div>
+</div>
+</a>
+<!-- Card 3 -->
+<a class="group block bg-white dark:bg-surface-dark rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 overflow-hidden hover:shadow-md transition-shadow" href="#">
+<div class="aspect-[4/3] bg-slate-200 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Chalet kitchen interior" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3wGv2lpNdcREP9I5lAc2y0OWP1OGRJQLN7_PV0qXPnGVwKYw081JQeMtmIUwu2p18cEprKOHm1kJG_UJcFCFBX3UW_g9yGp-zRxjxbGrhqfgvk3Nc9SaN9UCoIo6DLnQy-M0qH2w-_BR0ilan4OyzPvR3_WBA37uUvfNv6CQPRT0whnDKCGJ-nqfhI4KRIW9_MEAM6KxdlwXmPSoh0ZDdR5IAxLBM_urZ0GLLe2gzZ2E979FcVA0cDGwvAha3VhO4TQHJ65wfprQ"/>
+<div class="absolute top-2 left-2 bg-orange-500 text-white px-2 py-0.5 rounded text-xs font-bold">
+                            Gereserveerd
+                        </div>
+</div>
+<div class="p-4">
+<h4 class="font-bold text-lg mb-1 truncate">Veluwe Chalet Comfort</h4>
+<p class="text-primary font-bold text-lg mb-2">€ 28.950,-</p>
+<div class="flex items-center gap-3 text-xs text-text-muted">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">square_foot</span> 38m²</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">bed</span> 2</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">calendar_month</span> 2012</span>
+</div>
+</div>
+</a>
+<!-- Card 4 -->
+<a class="group block bg-white dark:bg-surface-dark rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 overflow-hidden hover:shadow-md transition-shadow" href="#">
+<div class="aspect-[4/3] bg-slate-200 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Chalet exterior in snow winter" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6mIXOyLNrtFPldNNfDNzccwLlDuKWmVlm7VDyFM7xVp56JHSYhca0_PY4sNI1OtrhTX5bivtohuMa2nuhPzdjJd38WwkI-SjvKDJ4D7ryR62UeTey_yWLbyTNyC2OFv5I2iZ7wGZvrSkEywsTFTdu-Qq-mAk_CThIRZ0RIEBbvMgp1ra6P0Nts5FVZWh37qlNzjhWbBpXGPGKacRJr7ZCD0lgrvOMpdnJC6OFGvbwX6eH9MPQLixR8eRO6IxjkwZ7FeTiey_uNDs"/>
+</div>
+<div class="p-4">
+<h4 class="font-bold text-lg mb-1 truncate">Winter Chalet Alpen</h4>
+<p class="text-primary font-bold text-lg mb-2">€ 65.000,-</p>
+<div class="flex items-center gap-3 text-xs text-text-muted">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">square_foot</span> 48m²</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">bed</span> 2</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">calendar_month</span> 2020</span>
+</div>
+</div>
+</a>
+</div>
+</section>
+</main>
+<!-- Footer Simple -->
+<footer class="bg-white dark:bg-surface-dark border-t border-slate-200 dark:border-slate-700 mt-12 py-12">
+<div class="max-w-7xl mx-auto px-4 lg:px-10 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-4 text-text-main dark:text-white">
+<div class="size-8 text-primary">
+<span class="material-symbols-outlined text-3xl">cottage</span>
+</div>
+<div>
+<h2 class="text-lg font-bold leading-tight">ChaletSecondLife</h2>
+<p class="text-xs text-text-muted">Specialist in tweedehands chalets</p>
+</div>
+</div>
+<div class="text-sm text-text-muted text-center md:text-right">
+<p>© 2024 ChaletSecondLife. Alle rechten voorbehouden.</p>
+<div class="flex gap-4 justify-center md:justify-end mt-2">
+<a class="hover:text-primary" href="#">Privacy</a>
+<a class="hover:text-primary" href="#">Voorwaarden</a>
+<a class="hover:text-primary" href="#">Contact</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
