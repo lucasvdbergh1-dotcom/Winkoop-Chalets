@@ -1,3 +1,14 @@
+# Secrets
+js/config.js
 .env
-config.js
-node_modules
+
+# Node
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test files
+test_*.js
+puppeteer_logs.json

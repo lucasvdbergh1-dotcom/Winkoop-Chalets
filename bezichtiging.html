@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Plan een bezichtiging | Winkoop Chalets</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#307de8",
+                        "primary-dark": "#1f62c4",
+                        "primary-light": "#eaf4ff",
+                        secondary: "#8b7355",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111821",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a2430",
+                        "text-main": "#111418",
+                        "text-muted": "#637288",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .view-hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light text-text-main font-display antialiased overflow-x-hidden">
+    <div class="relative flex min-h-screen w-full flex-col">
+
+        <!-- Global Header (matching rest of site) -->
+        <header
+            class="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 backdrop-blur dark:border-slate-800 dark:bg-background-dark/95">
+            <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+                <a href="/index.html" class="flex items-center gap-2">
+                    <div class="flex size-8 items-center justify-center rounded bg-primary/10 text-primary">
+                        <span class="material-symbols-outlined">chalet</span>
+                    </div>
+                    <span class="text-lg font-bold tracking-tight text-slate-900 dark:text-white">Winkoop Chalets</span>
+                </a>
+                <nav class="hidden md:flex items-center gap-8">
+                    <a class="text-sm font-medium text-slate-600 hover:text-primary transition-colors"
+                        href="/aanbod.html">Aanbod</a>
+                    <a class="text-sm font-medium text-slate-600 hover:text-primary transition-colors"
+                        href="/werkwijze.html">Werkwijze</a>
+                    <a class="text-sm font-medium text-slate-600 hover:text-primary transition-colors"
+                        href="/garanties.html">Garanties</a>
+                    <a class="text-sm font-medium text-slate-600 hover:text-primary transition-colors"
+                        href="/contact.html">Contact</a>
+                    <a class="text-sm font-medium text-slate-600 hover:text-primary transition-colors"
+                        href="/faq.html">FAQ</a>
+                </nav>
+                <div class="flex items-center gap-3">
+                    <a href="/aanbod.html"
+                        class="flex h-9 items-center justify-center rounded-lg bg-primary px-4 text-sm font-bold text-white shadow-sm transition-colors hover:bg-primary/90">
+                        Aanbod Bekijken
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- LOADER -->
+        <div id="view-loader" class="flex flex-col items-center justify-center py-20 flex-grow">
+            <span class="material-symbols-outlined animate-spin text-4xl text-primary">autorenew</span>
+            <p class="mt-4 text-text-muted font-medium">Chalet gegevens ophalen...</p>
+        </div>
+
+        <!-- MAIN: BEZICHTIGING VIEW (hidden until data loads) -->
+        <main id="view-bezichtiging"
+            class="view-hidden flex-grow flex items-start justify-center py-10 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-[1200px] w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+                <!-- LEFT COLUMN: Dynamic Chalet Preview -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div id="chalet-preview"
+                        class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden sticky top-24">
+                        <!-- Chalet Image -->
+                        <div class="relative h-64 bg-slate-100 group">
+                            <div class="data-bind-bez-bg w-full h-full bg-cover bg-center"
+                                style="background-image: url('https://placehold.co/600x400/eeeeee/999999?text=Loading...');">
+                            </div>
+                            <div class="absolute top-4 left-4">
+                                <span
+                                    class="inline-flex items-center rounded-md bg-white/90 px-3 py-1 text-xs font-bold text-primary ring-1 ring-inset ring-primary/20 shadow-sm">
+                                    Geselecteerd Model
+                                </span>
+                            </div>
+                        </div>
+                        <!-- Chalet Info -->
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <h3 class="data-bind-bez-title text-2xl font-black text-text-main mb-1">Laden...
+                                    </h3>
+                                    <div class="flex items-center text-text-muted text-sm gap-1">
+                                        <span class="material-symbols-outlined text-base">location_on</span>
+                                        Showterrein, NL
+                                    </div>
+                                </div>
+                                <p class="data-bind-bez-price text-primary font-black text-2xl">€ -,-</p>
+                            </div>
+                            <hr class="border-slate-100 my-4" />
+                            <div class="grid grid-cols-2 gap-4 text-sm text-text-muted mb-6">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary">straighten</span>
+                                    <span class="data-bind-bez-size">-</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary">bed</span>
+                                    <span class="data-bind-bez-beds">-</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary">calendar_month</span>
+                                    <span class="data-bind-bez-year">-</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary">shower</span>
+                                    <span class="data-bind-bez-baths">-</span>
+                                </div>
+                            </div>
+                            <!-- Winkoop Guarantee -->
+                            <div class="bg-primary-light/50 rounded-lg p-4 border border-primary/10">
+                                <h4 class="font-bold text-primary text-sm mb-2 flex items-center gap-2">
+                                    <span class="material-symbols-outlined">verified</span>
+                                    Winkoop Zekerheid
+                                </h4>
+                                <ul class="text-sm text-text-muted space-y-1 ml-1">
+                                    <li class="flex items-center gap-2 before:content-['•'] before:text-primary">
+                                        Volledig technische keuring</li>
+                                    <li class="flex items-center gap-2 before:content-['•'] before:text-primary">3
+                                        maanden garantie</li>
+                                    <li class="flex items-center gap-2 before:content-['•'] before:text-primary">
+                                        Transport mogelijk</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- WhatsApp CTA -->
+                        <div class="bg-slate-50 p-6 border-t border-slate-200">
+                            <p class="text-sm text-text-muted mb-3">Direct een vraag stellen?</p>
+                            <a class="flex items-center gap-3 text-text-main font-bold hover:text-green-600 transition-colors"
+                                href="https://wa.me/31612345678" target="_blank">
+                                <span class="bg-[#25D366] text-white p-2 rounded-full flex items-center justify-center">
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z">
+                                        </path>
+                                    </svg>
+                                </span>
+                                <span>WhatsApp ons</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT COLUMN: Static Booking Form -->
+                <div class="lg:col-span-7 bg-white rounded-xl shadow-sm border border-slate-200 p-8 lg:p-10">
+                    <div class="flex items-center justify-between mb-8">
+                        <h1 class="text-3xl font-black text-text-main">Plan een bezichtiging</h1>
+                        <span
+                            class="inline-flex items-center rounded-full bg-green-100 px-3 py-1 text-sm font-bold text-green-700">
+                            <span class="mr-1.5 h-2 w-2 rounded-full bg-green-600"></span>
+                            Vrijblijvend
+                        </span>
+                    </div>
+
+                    <form id="bezichtiging-form" class="space-y-8" onsubmit="return false;">
+                        <!-- Step 1: Date & Time -->
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span
+                                    class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white font-bold text-sm">1</span>
+                                <h2 class="text-lg font-bold text-text-main">Kies een datum & tijd</h2>
+                            </div>
+                            <div
+                                class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-slate-50 p-6 rounded-xl border border-slate-200">
+                                <div>
+                                    <label class="block text-sm font-bold text-text-muted mb-2">Datum</label>
+                                    <div class="relative">
+                                        <div
+                                            class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                            <span
+                                                class="material-symbols-outlined text-text-muted">calendar_today</span>
+                                        </div>
+                                        <input
+                                            class="block w-full pl-10 pr-3 py-2.5 bg-white border border-slate-300 rounded-lg text-text-main focus:ring-2 focus:ring-primary focus:border-primary sm:text-sm"
+                                            required type="date" id="bez-date" />
+                                    </div>
+                                    <p class="mt-2 text-xs text-text-muted">Wij zijn geopend van ma-za, 09:00 - 17:00.
+                                    </p>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-text-muted mb-2">Tijdsvoorkeur</label>
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <label class="cursor-pointer">
+                                            <input class="peer sr-only" name="time" type="radio" value="ochtend" />
+                                            <div
+                                                class="px-3 py-2 text-center text-sm border border-slate-300 rounded-lg peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary hover:bg-slate-100 transition-colors">
+                                                Ochtend
+                                            </div>
+                                        </label>
+                                        <label class="cursor-pointer">
+                                            <input class="peer sr-only" name="time" type="radio" value="middag" />
+                                            <div
+                                                class="px-3 py-2 text-center text-sm border border-slate-300 rounded-lg peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary hover:bg-slate-100 transition-colors">
+                                                Middag
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="mt-3 relative">
+                                        <div
+                                            class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                            <span class="material-symbols-outlined text-text-muted">schedule</span>
+                                        </div>
+                                        <select
+                                            class="block w-full pl-10 pr-3 py-2.5 bg-white border border-slate-300 rounded-lg text-text-main focus:ring-2 focus:ring-primary focus:border-primary sm:text-sm"
+                                            id="bez-time">
+                                            <option>Specifiek tijdstip...</option>
+                                            <option>09:30</option>
+                                            <option>10:30</option>
+                                            <option>11:30</option>
+                                            <option>13:30</option>
+                                            <option>14:30</option>
+                                            <option>15:30</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Contact Details -->
+                        <div class="space-y-4 pt-4 border-t border-slate-100">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span
+                                    class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white font-bold text-sm">2</span>
+                                <h2 class="text-lg font-bold text-text-main">Uw gegevens</h2>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-text-muted mb-1"
+                                        for="bez-name">Volledige naam</label>
+                                    <input
+                                        class="block w-full rounded-lg border-slate-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm py-2.5"
+                                        id="bez-name" placeholder="Uw naam" required type="text" />
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-text-muted mb-1"
+                                        for="bez-phone">Telefoonnummer</label>
+                                    <input
+                                        class="block w-full rounded-lg border-slate-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm py-2.5"
+                                        id="bez-phone" placeholder="06 12345678" required type="tel" />
+                                </div>
+                                <div class="md:col-span-2">
+                                    <label class="block text-sm font-medium text-text-muted mb-1"
+                                        for="bez-email">E-mailadres</label>
+                                    <input
+                                        class="block w-full rounded-lg border-slate-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm py-2.5"
+                                        id="bez-email" placeholder="naam@voorbeeld.nl" required type="email" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Comments -->
+                        <div class="space-y-4 pt-4 border-t border-slate-100">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span
+                                    class="flex items-center justify-center w-8 h-8 rounded-full bg-slate-200 text-text-muted font-bold text-sm">3</span>
+                                <h2 class="text-lg font-bold text-text-main">Opmerkingen (optioneel)</h2>
+                            </div>
+                            <div>
+                                <textarea
+                                    class="block w-full rounded-lg border-slate-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm p-3"
+                                    placeholder="Heeft u specifieke vragen of wensen?" rows="3"
+                                    id="bez-message"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Submit -->
+                        <div class="pt-6">
+                            <button id="bez-submit"
+                                class="w-full flex justify-center py-4 px-4 border border-transparent rounded-lg shadow-sm text-base font-bold text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all active:scale-[0.98]"
+                                type="button">
+                                Bevestig Afspraak
+                            </button>
+                            <p class="mt-4 text-center text-xs text-text-muted">
+                                Door op bevestigen te klikken gaat u akkoord met ons <a
+                                    class="text-primary hover:underline" href="/privacy-policy.html">privacybeleid</a>.
+                                Uw gegevens worden veilig verwerkt.
+                            </p>
+                        </div>
+                    </form>
+
+                    <!-- Success Message (hidden by default) -->
+                    <div id="bez-success" class="view-hidden text-center py-8">
+                        <div
+                            class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 text-green-600 mb-4">
+                            <span class="material-symbols-outlined text-3xl">check_circle</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Aanvraag Verzonden!</h3>
+                        <p class="text-text-muted mb-6">Wij nemen binnen 24 uur contact met u op om een afspraak te
+                            bevestigen.</p>
+                        <a href="/aanbod"
+                            class="inline-block rounded-lg bg-primary px-6 py-3 text-sm font-bold text-white shadow hover:bg-primary/90">
+                            Meer Chalets Bekijken
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Global Footer (matching rest of site) -->
+        <footer
+            class="border-t border-slate-200 bg-white pt-16 pb-8 dark:border-slate-800 dark:bg-background-dark mt-auto">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-5">
+                    <div class="col-span-2 lg:col-span-2">
+                        <div class="flex items-center gap-2 mb-4">
+                            <div class="flex size-6 items-center justify-center rounded bg-primary text-white">
+                                <span class="material-symbols-outlined text-sm">chalet</span>
+                            </div>
+                            <span class="text-lg font-bold tracking-tight text-slate-900 dark:text-white">Winkoop
+                                Chalets</span>
+                        </div>
+                        <p class="max-w-xs text-sm text-slate-500 dark:text-slate-400">
+                            De meest betrouwbare partner voor de aan- en verkoop van gerenoveerde mobiele chalets en
+                            stacaravans in Nederland.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="mb-3 text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white">Main
+                            Menu</h3>
+                        <ul class="space-y-2">
+                            <li><a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400"
+                                    href="/index.html">Home</a></li>
+                            <li><a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400"
+                                    href="/aanbod.html">Aanbod</a></li>
+                            <li><a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400"
+                                    href="/werkwijze.html">Werkwijze</a></li>
+                            <li><a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400"
+                                    href="/garanties.html">Garanties</a></li>
+                            <li><a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400"
+                                    href="/contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="mb-3 text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white">
+                            Support & Legal</h3>
+                        <ul class="space-y-2">
+                            <li><a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400"
+                                    href="/faq.html">FAQ</a></li>
+                            <li><a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400"
+                                    href="/algemene-voorwaarden.html">Algemene Voorwaarden</a></li>
+                            <li><a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400"
+                                    href="/privacy-policy.html">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="mb-3 text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white">
+                            Contact</h3>
+                        <ul class="space-y-2">
+                            <li><a class="text-sm text-slate-500 hover:text-primary dark:text-slate-400"
+                                    href="/contact.html">info@winkoopchalets.nl</a></li>
+                            <li><span class="text-sm text-slate-500 dark:text-slate-400">0342 - 123 456</span></li>
+                            <li class="text-sm text-slate-500 dark:text-slate-400 mt-2">Ma-Vr, 09:00 - 17:00</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-12 border-t border-slate-100 pt-8 dark:border-slate-800">
+                    <p class="text-center text-sm text-slate-400">
+                        © 2026 Winkoop Chalets B.V. Alle rechten voorbehouden.
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- LOGIC LAYER -->
+    <script src="/js/config.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+
+</html>
